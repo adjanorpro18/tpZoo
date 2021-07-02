@@ -2,6 +2,7 @@ package com.example.tpzoo.controller;
 
 import com.example.tpzoo.entites.Tigre;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -47,6 +48,30 @@ public class TigreController {
         tigres.add(tigre3);
         tigres.add(tigre4);
 
+        return tigres;
+    }
+
+    @PostMapping("tigres")
+    public List<Tigre> addTigre(){
+
+        Tigre tigre5 = new Tigre();
+        tigre5.setNom("tigre5");
+        tigre5.setCouleur("Rayé");
+        tigre5.setRace("Tigre de Java");
+        tigre5.setType("Tigresse");
+        tigre5.setAge(3);
+
+        Tigre tigre6 = new Tigre();
+        tigre6.setNom("tigre6");
+        tigre6.setCouleur("Orange clair");
+        tigre6.setRace("Tigre de Soumatra");
+        tigre6.setType("Tigre");
+        tigre6.setAge(9);
+
+
+        List<Tigre> tigres = new ArrayList<Tigre>();
+        tigres.add(tigre5);
+        tigres.add(tigre6);
         return tigres;
     }
 }
