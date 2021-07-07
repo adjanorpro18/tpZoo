@@ -1,6 +1,17 @@
 package com.example.tpzoo.entites;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Tigre {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+
     private String nom;
     private String couleur;
     private String race;
@@ -10,12 +21,21 @@ public class Tigre {
     public Tigre() {
     }
 
-    public Tigre(String nom, String couleur, String race, String type, int age) {
+    public Tigre(String nom, String couleur, String race, String type, int age, Long id) {
+        this.id = id;
         this.nom = nom;
         this.couleur = couleur;
         this.race = race;
         this.type = type;
         this.age = age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -61,6 +81,7 @@ public class Tigre {
     @Override
     public String toString() {
         return "Tigre{" +
+                "id='" + id + '\'' +
                 "nom='" + nom + '\'' +
                 ", couleur='" + couleur + '\'' +
                 ", race='" + race + '\'' +

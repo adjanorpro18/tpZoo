@@ -5,7 +5,6 @@ import com.example.tpzoo.metier.ServiceTigre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController("tigres")
@@ -28,11 +27,12 @@ public class TigreController {
         System.out.println(nouveauTigre);
     }
 
-    @DeleteMapping("tigres/{nom}")
-    public String deleteTigre(@PathVariable("nom") String nom){
 
-        serviceTigre.deleteTigre(nom);
-        return "Suppression OK";
+    @DeleteMapping("/tigres/{id}")
+    public int deleteTigre(@PathVariable("id") Long id){
+        serviceTigre.deleteTigre(id);
+        return 1;
 
     }
+
 }
